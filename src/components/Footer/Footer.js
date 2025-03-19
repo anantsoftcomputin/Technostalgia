@@ -24,13 +24,11 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.facebook.com/people/Unplugwell-DigitalDetox/61570893369070/",
   },
-  { name: "Twitter", icon: Twitter, href: "https://x.com/unplugwell" },
+  { name: "Twitter", icon: Twitter },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/unplugwell/",
   },
 ];
 
@@ -63,8 +61,14 @@ const Footer = () => {
               href="/"
               className="flex items-center space-x-2 text-2xl font-bold text-white"
             >
-              
-              <span className="text-xl md:inline-block ml-2">Technostalgia</span>
+              <img
+                src="/technostalgia.png"
+                alt="Technostalgia"
+                className="h-8 w-auto"
+              />
+              <span className="text-xl md:inline-block ml-2">
+                Technostalgia
+              </span>
             </Link>
             <p className="mt-4 text-gray-400">
               Empowering mindful technology use for a balanced digital
