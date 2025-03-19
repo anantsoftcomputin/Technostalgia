@@ -7,10 +7,10 @@ import AdBanner from "@/components/AdBanner/AdBanner";
 export const metadata = {
   icons: {
     icon: [
-      { url: "/breatheoffline.png" },
-      { url: "/breatheoffline.png", sizes: "32x32", type: "image/png" },
+      { url: "/technostalgia.png" },
+      { url: "/technostalgia.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: { url: "/breatheoffline.png", sizes: "180x180", type: "image/png" },
+    apple: { url: "/ technostalgia.png", sizes: "180x180", type: "image/png" },
   },
 };
 
@@ -45,7 +45,6 @@ export default function RootLayout({ children }) {
         <Header />
         <AdBanner />
         {children}
-        <AdBanner />
         <Footer />
       </body>
     </html>
