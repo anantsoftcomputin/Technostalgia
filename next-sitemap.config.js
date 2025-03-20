@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 
 module.exports = {
-  siteUrl: "https://technostalgia.com/",
+  siteUrl: "https://techsnostalgia.com/",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   sitemapSize: 5000,
@@ -37,12 +37,12 @@ module.exports = {
   additionalPaths: async () => {
     try {
       const blogResponse = await axios.get(
-        "https://peekly.in/blog/api/all-posts/?site_domain=technostalgia.com"
+        "https://peekly.in/blog/api/all-posts/?site_domain=techsnostalgia.com"
       );
       const blogPosts = blogResponse.data.results;
 
       const categoryResponse = await axios.get(
-        "https://peekly.in/blog/api/get-categories/?site=technostalgia.com"
+        "https://peekly.in/blog/api/get-categories/?site=techsnostalgia.com"
       );
       const categories = categoryResponse.data.results;
 

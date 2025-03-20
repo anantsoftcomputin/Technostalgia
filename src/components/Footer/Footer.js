@@ -62,12 +62,12 @@ const Footer = () => {
               className="flex items-center space-x-2 text-2xl font-bold text-white"
             >
               <img
-                src="/technostalgia.png"
-                alt="Technostalgia"
+                src="/techsnostalgia.png"
+                alt="Techsnostalgia"
                 className="h-8 w-auto"
               />
               <span className="text-xl md:inline-block ml-2">
-                Technostalgia
+                Techsnostalgia
               </span>
             </Link>
             <p className="mt-4 text-gray-400">
@@ -75,9 +75,9 @@ const Footer = () => {
               lifestyle.
             </p>
             <div className="flex space-x-4 mt-6">
-              {socialLinks.map(({ name, icon: Icon, href }) => (
+              {socialLinks.map(({ name, icon: Icon, href },index) => (
                 <a
-                  key={href}
+                  key={index}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -112,7 +112,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
           <p className="text-gray-400 text-sm">
             {currentYear
-              ? `© ${currentYear} Technostalgia. All rights reserved.`
+              ? `© ${currentYear} Techsnostalgia. All rights reserved.`
               : "Loading..."}
           </p>
         </div>
