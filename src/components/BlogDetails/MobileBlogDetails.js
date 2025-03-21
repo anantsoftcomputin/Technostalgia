@@ -193,11 +193,21 @@ export default function BlogDetails({ slug }) {
                     <Facebook className="h-6 w-6 mb-1" />
                     <span className="text-xs">Facebook</span>
                   </button>
-                  <button className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#1DA1F2]/10 text-[#1DA1F2] hover:bg-[#1DA1F2]/20 transition-colors">
+                  <button
+                    className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#1DA1F2]/10 text-[#1DA1F2] hover:bg-[#1DA1F2]/20 transition-colors"
+                    onClick={() =>
+                      window.open("https://twitter.com/techsnostalgia")
+                    }
+                  >
                     <Twitter className="h-6 w-6 mb-1" />
                     <span className="text-xs">Twitter</span>
                   </button>
-                  <button className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#E4405F]/10 text-[#E4405F] hover:bg-[#E4405F]/20 transition-colors">
+                  <button
+                    className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#E4405F]/10 text-[#E4405F] hover:bg-[#E4405F]/20 transition-colors"
+                    onClick={() =>
+                      window.open("https://www.instagram.com/techsnostalgia/")
+                    }
+                  >
                     <Instagram className="h-6 w-6 mb-1" />
                     <span className="text-xs">Instagram</span>
                   </button>

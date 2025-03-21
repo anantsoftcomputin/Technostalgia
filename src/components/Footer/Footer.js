@@ -25,10 +25,15 @@ const socialLinks = [
     name: "Facebook",
     icon: Facebook,
   },
-  { name: "Twitter", icon: Twitter },
+  {
+    name: "Twitter",
+    icon: Twitter,
+    href: "https://twitter.com/techsnostalgia",
+  },
   {
     name: "Instagram",
     icon: Instagram,
+    href: "https://www.instagram.com/techsnostalgia/",
   },
 ];
 
@@ -75,7 +80,7 @@ const Footer = () => {
               lifestyle.
             </p>
             <div className="flex space-x-4 mt-6">
-              {socialLinks.map(({ name, icon: Icon, href },index) => (
+              {socialLinks.map(({ name, icon: Icon, href }, index) => (
                 <a
                   key={index}
                   href={href}
@@ -111,9 +116,22 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
           <p className="text-gray-400 text-sm">
-            {currentYear
-              ? `© ${currentYear} Techsnostalgia. All rights reserved.`
-              : "Loading..."}
+            {currentYear ? (
+              <div>
+                © {currentYear} Techsnostalgia. All rights reserved | Design &
+                Developed By{" "}
+                <a
+                  href="https://anantsoftcomputing.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold hover:text-gray-400 transition-colors duration-300"
+                >
+                  Anant Soft Computing
+                </a>
+              </div>
+            ) : (
+              "Loading..."
+            )}
           </p>
         </div>
       </div>
