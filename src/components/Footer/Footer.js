@@ -24,6 +24,7 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
+    href: "https://www.facebook.com/techsnostalgia/",
   },
   {
     name: "Twitter",
