@@ -702,7 +702,12 @@ export default function BlogDetails({ slug }) {
               Share this article
             </h3>
             <div className="grid grid-cols-3 gap-3">
-              <button className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2]/20 transition-colors">
+              <button
+                className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2]/20 transition-colors"
+                onClick={() =>
+                  window.open("https://www.facebook.com/techsnostalgia/")
+                }
+              >
                 <Facebook className="h-6 w-6 mb-1" />
                 <span className="text-xs">Facebook</span>
               </button>
