@@ -7,7 +7,7 @@ export default function AdUnit() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.atOptions = {
-        key: "27a258a04e705d5b539649f80421bd41",
+        key: "fc080d8833007a67824f9fc94b3acb87",
         format: "iframe",
         height: 60,
         width: 468,
@@ -15,8 +15,7 @@ export default function AdUnit() {
       };
 
       const script = document.createElement("script");
-      script.src =
-        "//www.highperformanceformat.com/27a258a04e705d5b539649f80421bd41/invoke.js";
+      script.src = "//spadelack.com/fc080d8833007a67824f9fc94b3acb87/invoke.js";
       script.async = true;
 
       if (adRef.current) {
