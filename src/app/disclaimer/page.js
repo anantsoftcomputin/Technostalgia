@@ -5,7 +5,7 @@ export default function Disclaimer() {
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
               Disclaimer
             </h1>
           </div>
@@ -244,7 +244,7 @@ export default function Disclaimer() {
                   If you have any questions or concerns about these Terms and
                   Conditions, please contact us at:
                 </p>
-                <p className="mt-2 text-purple-600">
+                <p className="mt-2 text-teal-600">
                   Email: support@techsnostalgia.com
                   <br />
                   Address: Alkapuri, Vadodara, Gujarat, India 390007.

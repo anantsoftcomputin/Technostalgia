@@ -107,8 +107,8 @@ export default function Categories() {
                 onClick={() => paginate(1)}
                 className={`w-10 h-10 rounded-full ${
                   currentPage === 1
-                    ? "bg-purple-600 text-white"
-                    : "bg-white text-gray-600 hover:bg-purple-50"
+                    ? "bg-teal-600 text-white"
+                    : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
               >
                 1
@@ -126,8 +126,8 @@ export default function Categories() {
               onClick={() => paginate(startPage + i)}
               className={`w-10 h-10 rounded-full ${
                 currentPage === startPage + i
-                  ? "bg-purple-600 text-white"
-                  : "bg-white text-gray-600 hover:bg-purple-50"
+                  ? "bg-teal-600 text-white"
+                  : "bg-white text-gray-600 hover:bg-teal-50"
               } shadow-md`}
             >
               {startPage + i}
@@ -144,8 +144,8 @@ export default function Categories() {
                 onClick={() => paginate(totalPages)}
                 className={`w-10 h-10 rounded-full ${
                   currentPage === totalPages
-                    ? "bg-purple-600 text-white"
-                    : "bg-white text-gray-600 hover:bg-purple-50"
+                    ? "bg-teal-600 text-white"
+                    : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
               >
                 {totalPages}
@@ -167,16 +167,15 @@ export default function Categories() {
 
   return (
     <main className="py-12 min-h-screen">
-      <section className="relative py-20 bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-900">
+      <section className="relative py-20 bg-teal-100">
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Categories
             </h1>
-            <p className="text-xl text-purple-100 mb-8">
-              Discover focused content across various aspects of digital
-              wellness
+            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+              Journey through specialized retro tech categories
             </p>
             <div className="relative max-w-2xl mx-auto">
               <motion.div
@@ -190,9 +189,9 @@ export default function Categories() {
                   placeholder="Search categories..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 md:py-5 rounded-full bg-white/10 backdrop-blur-sm text-white placeholder-purple-200 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/20 transition-all duration-300"
+                  className="w-full pl-12 pr-4 py-4 md:py-5 rounded-full bg-white text-gray-800 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
                 />
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-purple-200" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
