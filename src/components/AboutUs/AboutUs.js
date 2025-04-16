@@ -142,7 +142,7 @@ const AboutUs = () => {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <h3 className="text-3xl md:text-4xl font-bold text-teal-800 text-transparent mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold text-teal-800 mb-6">
                 Our Mission
               </h3>
               <p className="text-gray-800 text-lg mb-8">
@@ -192,7 +192,7 @@ const AboutUs = () => {
       </section>
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-center text-4xl md:text-5xl font-bold text-teal-800 text-transparent mb-4">
+          <h2 className="text-center text-4xl md:text-5xl font-bold text-teal-800 mb-4">
             What We Offer
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
