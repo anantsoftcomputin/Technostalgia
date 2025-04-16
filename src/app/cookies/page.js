@@ -5,7 +5,7 @@ export default function CookiesPolicy() {
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
               Cookie Policy
             </h1>
           </div>
@@ -18,11 +18,11 @@ export default function CookiesPolicy() {
               </div>
               <div className="p-6">
                 <p className="text-gray-600">
-                  techsnostalgia.com (hereinafter referred to as "the Site," "we,"
-                  "us," or "our") uses cookies and other similar technologies to
-                  enhance your browsing experience. This Cookie Policy explains
-                  what cookies are, how we use them, and your choices regarding
-                  cookies.
+                  techsnostalgia.com (hereinafter referred to as "the Site,"
+                  "we," "us," or "our") uses cookies and other similar
+                  technologies to enhance your browsing experience. This Cookie
+                  Policy explains what cookies are, how we use them, and your
+                  choices regarding cookies.
                 </p>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function CookiesPolicy() {
                   If you have any questions or concerns about these Terms and
                   Conditions, please contact us at:
                 </p>
-                <p className="mt-2 text-purple-600">
+                <p className="mt-2 text-teal-600">
                   Email: support@techsnostalgia.com
                   <br />
                   Address: Alkapuri, Vadodara, Gujarat, India 390007.

@@ -104,7 +104,7 @@ export default function Blog() {
     }
 
     setFilteredBlogs(filtered);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   }, [selectedCategory, searchQuery, blogs]);
 
   const clearFilters = () => {
@@ -146,8 +146,8 @@ export default function Blog() {
                 onClick={() => paginate(1)}
                 className={`w-10 h-10 rounded-full ${
                   currentPage === 1
-                    ? "bg-purple-600 text-white"
-                    : "bg-white text-gray-600 hover:bg-purple-50"
+                    ? "bg-teal-600 text-white"
+                    : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
               >
                 1
@@ -165,8 +165,8 @@ export default function Blog() {
               onClick={() => paginate(startPage + i)}
               className={`w-10 h-10 rounded-full ${
                 currentPage === startPage + i
-                  ? "bg-purple-600 text-white"
-                  : "bg-white text-gray-600 hover:bg-purple-50"
+                  ? "bg-teal-600 text-white"
+                  : "bg-white text-gray-600 hover:bg-teal-50"
               } shadow-md`}
             >
               {startPage + i}
@@ -183,8 +183,8 @@ export default function Blog() {
                 onClick={() => paginate(totalPages)}
                 className={`w-10 h-10 rounded-full ${
                   currentPage === totalPages
-                    ? "bg-purple-600 text-white"
-                    : "bg-white text-gray-600 hover:bg-purple-50"
+                    ? "bg-teal-600 text-white"
+                    : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
               >
                 {totalPages}
@@ -206,10 +206,7 @@ export default function Blog() {
 
   return (
     <main className="py-10 min-h-screen">
-      <section className="relative py-20 bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-900">
-        <div className="absolute inset-0 bg-grid-white/[0.05]" />
-        <div className="absolute -inset-x-0 top-0 h-40 bg-[url('/pattern-light.svg')] opacity-10" />
-        <div className="absolute -inset-x-0 bottom-0 h-40 bg-[url('/pattern-light.svg')] opacity-10" />
+      <section className="relative py-20 bg-teal-50">
         <div className="relative container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -217,12 +214,13 @@ export default function Blog() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Explore Our Blog
             </h1>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Discover insights and strategies for maintaining digital wellness
-              in today's connected world.
+            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+              Explore the golden age of computing with our collection of vintage
+              tech stories, classic hardware retrospectives, and nostalgic
+              gaming memories.
             </p>
             <div className="relative max-w-2xl mx-auto">
               <motion.div
@@ -233,16 +231,16 @@ export default function Blog() {
               >
                 <input
                   type="text"
-                  placeholder="Search blogs..."
+                  placeholder="Search vintage tech posts..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 md:py-5 rounded-full bg-white/10 backdrop-blur-sm text-white placeholder-purple-200 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/20 transition-all duration-300"
+                  className="w-full pl-12 pr-4 py-4 md:py-5 rounded-full bg-white text-gray-800 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
                 />
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-purple-200" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:bg-gray-300 transition-colors"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -253,15 +251,15 @@ export default function Blog() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="flex p-1 rounded-full bg-white/10 border border-white/20"
+                  className="flex p-1 rounded-full bg-teal-100 border border-teal-200/70"
                 >
                   <button
                     onClick={() => setViewMode("grid")}
                     className={`px-4 py-1 rounded-full text-sm ${
                       viewMode === "grid"
-                        ? "bg-white text-purple-900"
-                        : "text-white"
-                    } transition-all duration-300`}
+                        ? "bg-teal-600 text-white shadow"
+                        : "text-teal-700 hover:bg-teal-200/60"
+                    } transition-all duration-300 flex items-center`}
                   >
                     Grid
                   </button>
@@ -269,9 +267,9 @@ export default function Blog() {
                     onClick={() => setViewMode("list")}
                     className={`px-4 py-1 rounded-full text-sm ${
                       viewMode === "list"
-                        ? "bg-white text-purple-900"
-                        : "text-white"
-                    } transition-all duration-300`}
+                        ? "bg-teal-600 text-white shadow"
+                        : "text-teal-700 hover:bg-teal-200/60"
+                    } transition-all duration-300 flex items-center`}
                   >
                     List
                   </button>
@@ -305,10 +303,10 @@ export default function Blog() {
                         setSelectedCategory(category);
                         setIsCategoryOpen(false);
                       }}
-                      className={`w-full px-4 py-2 text-left rounded-full text-sm font-semibold transition-all duration-300 ${
+                      className={`inline-flex items-center justify-center px-6 py-2 rounded-full text-sm font-semibold transition-colors duration-300 border border-teal-600  ${
                         selectedCategory === category
-                          ? "bg-purple-600 text-white shadow-lg shadow-purple-500/25 scale-105"
-                          : "bg-purple-100 text-purple-600 hover:bg-purple-200"
+                          ? "bg-teal-600 text-white shadow-lg shadow-teal-500/25"
+                          : "bg-white text-teal-600 hover:bg-teal-50"
                       }`}
                     >
                       {category}
@@ -322,10 +320,10 @@ export default function Blog() {
                 <button
                   key={index}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  className={`inline-flex items-center justify-center px-6 py-2 rounded-full text-sm font-semibold transition-colors duration-300 border border-teal-600  ${
                     selectedCategory === category
-                      ? "bg-purple-600 text-white shadow-lg shadow-purple-500/25 scale-105"
-                      : "bg-purple-100 text-purple-600 hover:bg-purple-200"
+                      ? "bg-teal-600 text-white shadow-lg shadow-teal-500/25"
+                      : "bg-white text-teal-600 hover:bg-teal-50"
                   }`}
                 >
                   {category}
@@ -338,7 +336,7 @@ export default function Blog() {
       {!searchQuery && selectedCategory === "All" && featuredBlog && (
         <section className="container mx-auto px-4 sm:px-6 py-12">
           <div className="flex items-center gap-2 mb-6">
-            <Sparkles className="h-5 w-5 text-purple-600" />
+            <Sparkles className="h-5 w-5 text-teal-600" />
             <h2 className="text-2xl font-bold text-gray-900">Featured Post</h2>
           </div>
           <Link href={`/${featuredBlog.slug}`}>
@@ -355,7 +353,7 @@ export default function Blog() {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-purple-600 text-sm font-medium">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-teal-600 text-sm font-medium">
                       <Tag className="h-3 w-3" />
                       {featuredBlog.category.name}
                     </span>
@@ -363,7 +361,7 @@ export default function Blog() {
                 </div>
 
                 <div className="md:w-1/2 p-6 md:p-8 bg-white flex flex-col">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 hover:text-purple-600">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 hover:text-teal-600">
                     {featuredBlog.title}
                   </h2>
                   <p className="text-gray-600 text-lg mb-4 line-clamp-3">
@@ -374,7 +372,7 @@ export default function Blog() {
                     {featuredBlog.tags.slice(0, 3).map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm"
+                        className="px-3 py-1 bg-teal-50 text-teal-600 rounded-full text-sm"
                       >
                         {tag.name}
                       </span>
@@ -383,7 +381,7 @@ export default function Blog() {
 
                   <div className="mt-auto">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full border-2 border-purple-100 flex items-center justify-center bg-purple-100 text-purple-600 font-semibold">
+                      <div className="w-10 h-10 rounded-full border-2 border-teal-100 flex items-center justify-center bg-teal-100 text-teal-600 font-semibold">
                         {featuredBlog.author.full_name.charAt(0)}
                       </div>
                       <div>
@@ -398,11 +396,11 @@ export default function Blog() {
 
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-1 text-sm text-gray-500">
-                        <BookCheck className="h-4 w-4 text-pink-500" />
+                        <BookCheck className="h-4 w-4 text-teal-500" />
                         {featuredBlog.estimated_reading_time} min read
                       </span>
 
-                      <button className="inline-flex items-center gap-1 px-4 py-2 bg-purple-100 rounded-full text-purple-600 text-sm font-medium hover:bg-purple-200 transition-colors">
+                      <button className="inline-flex items-center gap-1 px-4 py-2 bg-teal-100 rounded-full text-teal-600 text-sm font-medium hover:bg-teal-200 transition-colors">
                         Read Article <ChevronRight className="h-4 w-4 ml-1" />
                       </button>
                     </div>
@@ -416,7 +414,7 @@ export default function Blog() {
       <section className="container mx-auto px-4 sm:px-6 py-12">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-purple-600" />
+            <BookOpen className="h-5 w-5 text-teal-600" />
             {searchQuery
               ? `Search Results for "${searchQuery}"`
               : selectedCategory !== "All"
@@ -512,7 +510,7 @@ export default function Blog() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-purple-600 text-sm font-medium">
+                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-teal-600 text-sm font-medium">
                           <Tag className="h-3 w-3" />
                           {blog.category.name}
                         </span>
@@ -524,7 +522,7 @@ export default function Blog() {
                         viewMode === "list" ? "md:w-2/3" : ""
                       }`}
                     >
-                      <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                      <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
                         {blog.title}
                       </h2>
 
@@ -550,7 +548,7 @@ export default function Blog() {
 
                       <div className="mt-auto">
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-purple-100 flex items-center justify-center bg-purple-100 text-purple-600 font-semibold">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-teal-100 flex items-center justify-center bg-teal-100 text-teal-600 font-semibold">
                             {blog.author.full_name.charAt(0)}
                           </div>
                           <div>
@@ -565,12 +563,12 @@ export default function Blog() {
 
                         <div className="flex flex-wrap gap-3 items-center justify-between text-xs sm:text-sm text-gray-500">
                           <span className="flex items-center gap-1">
-                            <BookCheck className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500" />
+                            <BookCheck className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500" />
                             {blog.estimated_reading_time} min read
                           </span>
 
                           <span className="flex items-center gap-1">
-                            <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
+                            <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500" />
                             {moment(blog.published_at)
                               .startOf("hour")
                               .fromNow()}
@@ -590,15 +588,15 @@ export default function Blog() {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="h-8 w-8 text-purple-600" />
+            <div className="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="h-8 w-8 text-teal-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               No Articles Found
             </h3>
             <button
               onClick={clearFilters}
-              className="px-6 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors"
+              className="px-6 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-colors"
             >
               Clear Filters
             </button>

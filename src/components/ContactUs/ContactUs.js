@@ -8,9 +8,11 @@ import {
   MessageSquare,
   Send,
   User,
-  PhoneCall,
+  Gamepad,
   MapPin,
   ArrowRight,
+  Computer,
+  Disc,
 } from "lucide-react";
 
 const ContactUs = () => {
@@ -35,7 +37,7 @@ const ContactUs = () => {
         data: { ...data, site: "4" },
       });
       if (response.status === 200 || response.status === 201) {
-        toast.success("Message sent successfully! 🎉");
+        toast.success("Message sent successfully! 🕹️");
         reset();
       } else {
         toast.error("Failed to send message. Please try again.");
@@ -47,28 +49,28 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="py-12 min-h-screen px-4 sm:px-6 lg:px-8">
+    <div className="py-12 min-h-screen px-4 sm:px-6 lg:px-8 bg-gray-50">
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="relative py-16 sm:py-20">
-        <div className="absolute inset-0 bg-grid-white/[0.05]" />
+        <div className="absolute inset-0 bg-grid-gray-200/[0.05]" />
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block border border-purple-600 py-1 px-3 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent font-medium text-sm mb-4">
-              GET IN TOUCH
+            <div className="inline-block border border-teal-600 py-1 px-3 rounded-full bg-gradient-to-br from-teal-700 via-teal-600 to-teal-700 bg-clip-text text-transparent font-medium text-sm mb-4">
+              CONNECT WITH US
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent mb-4">
-              We're Here to Support Your Digital Wellness Journey
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Got Questions About Retro Tech?
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions about digital detox or need personalized guidance?
-              Our team is ready to help you create a healthier relationship with
-              technology.
+            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+              Whether you're curious about vintage computers or need help with
+              classic gaming, our tech nostalgia experts are here to help!
             </p>
           </div>
 
           <div className="grid md:grid-cols-12 gap-8 lg:gap-10 items-start">
             <div className="md:col-span-7 bg-white rounded-3xl shadow-xl p-6 sm:p-8 transform transition-all duration-500 hover:shadow-2xl">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <Gamepad className="h-6 w-6 text-teal-600 mr-2" />
                 Send Us a Message
               </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -165,7 +167,7 @@ const ContactUs = () => {
                           type="text"
                           id="subject"
                           className="pl-10 w-full py-3 px-4 bg-gray-50 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-gray-300 transition-colors"
-                          placeholder="How can we help you?"
+                          placeholder="Ask about our retro tech collection..."
                         />
                       )}
                     />
@@ -189,7 +191,7 @@ const ContactUs = () => {
                         id="message"
                         rows="5"
                         className="w-full py-3 px-4 bg-gray-50 border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-gray-300 transition-colors"
-                        placeholder="Tell us how we can help with your digital wellness journey..."
+                        placeholder="Tell us about your favorite retro tech or ask a question..."
                       />
                     )}
                   />
@@ -201,7 +203,7 @@ const ContactUs = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+                  className="w-full py-3 px-6 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
                 >
                   Send Message
                   <Send className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
@@ -211,10 +213,13 @@ const ContactUs = () => {
 
             <div className="md:col-span-5 space-y-8">
               <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-gray-800 transform transition-all duration-500 hover:scale-105">
-                <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+                <h3 className="text-xl font-bold mb-6 flex items-center">
+                  <Computer className="h-6 w-6 text-teal-600 mr-2" />
+                  Contact Information
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="p-3 bg-purple-600 rounded-full mr-4">
+                    <div className="p-3 bg-teal-600 rounded-full mr-4">
                       <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -228,7 +233,7 @@ const ContactUs = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="p-3 bg-purple-600 rounded-full mr-4">
+                    <div className="p-3 bg-teal-600 rounded-full mr-4">
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -242,44 +247,45 @@ const ContactUs = () => {
               </div>
 
               <div className="bg-white rounded-3xl shadow-lg p-6 sm:p-8 transform transition-all duration-500 hover:shadow-xl">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                  <Disc className="h-6 w-6 text-teal-600 mr-2" />
                   Frequently Asked Questions
                 </h3>
                 <ul className="space-y-3">
                   <li>
                     <a
-                      href="/faq#detox-plan"
+                      href=""
                       className="flex items-center text-gray-700 hover:text-gray-900 group"
                     >
                       <ArrowRight className="h-4 w-4 mr-2 text-gray-500 transform transition-transform group-hover:translate-x-1" />
-                      <span>How do I create a digital detox plan?</span>
+                      <span>How to start a retro tech collection?</span>
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/faq#workplace"
+                      href=""
                       className="flex items-center text-gray-700 hover:text-gray-900 group"
                     >
                       <ArrowRight className="h-4 w-4 mr-2 text-gray-500 transform transition-transform group-hover:translate-x-1" />
-                      <span>Digital wellness solutions for workplaces</span>
+                      <span>Where to repair vintage computers?</span>
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/faq#screen-time"
+                      href=""
                       className="flex items-center text-gray-700 hover:text-gray-900 group"
                     >
                       <ArrowRight className="h-4 w-4 mr-2 text-gray-500 transform transition-transform group-hover:translate-x-1" />
-                      <span>Managing children's screen time</span>
+                      <span>Best places to find classic games?</span>
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/faq#newsletter"
+                      href=""
                       className="flex items-center text-gray-700 hover:text-gray-900 group"
                     >
                       <ArrowRight className="h-4 w-4 mr-2 text-gray-500 transform transition-transform group-hover:translate-x-1" />
-                      <span>How to subscribe to our newsletter</span>
+                      <span>How to join our retro tech newsletter</span>
                     </a>
                   </li>
                 </ul>

@@ -2,166 +2,204 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Sparkles,
-  PhoneOff,
-  Brain,
-  Moon,
+  Disc,
+  Keyboard,
+  Monitor,
   Users,
-  ShieldCheck,
+  Gamepad,
+  HardDrive,
+  Clock,
+  Smartphone,
 } from "lucide-react";
 
-const stats = [
+const coreBenefits = [
   {
-    icon: <PhoneOff className="h-6 w-6 text-purple-200" />,
-    bgColor: "bg-purple-600/20",
-    count: "30+",
-    label: "Digital Detox Ideas",
+    icon: <Disc className="h-5 w-5 text-teal-600" />,
+    label: "Relive Retro Tech Memories",
   },
   {
-    icon: <Moon className="h-6 w-6 text-indigo-200" />,
-    bgColor: "bg-indigo-600/20",
-    count: "500+",
-    label: "Mindful Tech Articles",
+    icon: <Keyboard className="h-5 w-5 text-teal-600" />,
+    label: "Classic Hardware Features",
   },
   {
-    icon: <Brain className="h-6 w-6 text-violet-200" />,
-    bgColor: "bg-violet-600/20",
-    count: "10+",
-    label: "Expert Contributors",
-  },
-  {
-    icon: <Users className="h-6 w-6 text-pink-200" />,
-    bgColor: "bg-pink-600/20",
-    count: "10K+",
-    label: "Transformed Lives",
+    icon: <Users className="h-5 w-5 text-teal-600" />,
+    label: "Nostalgic Community",
   },
 ];
 
 const feature = [
   {
-    icon: <ShieldCheck className="h-6 w-6 text-purple-600" />,
-    bgColor: "bg-purple-100",
-    title: "Digital Wellness Tools",
+    icon: <Monitor className="h-6 w-6 text-teal-600" />,
+    bgColor: "bg-teal-100",
+    title: "Vintage Computer Guides",
     description:
-      "Apps and techniques to monitor and improve your digital habits.",
+      "Explore the golden age of computing with our in-depth retro tech articles.",
   },
   {
-    icon: <Brain className="h-6 w-6 text-purple-600" />,
-    bgColor: "bg-purple-100",
-    title: "Mindfulness Practices",
+    icon: <Gamepad className="h-6 w-6 text-teal-600" />,
+    bgColor: "bg-teal-100",
+    title: "Classic Gaming Retrospectives",
     description:
-      "Simple meditation and mindfulness exercises for digital balance.",
+      "Revisit the games and consoles that defined generations of gamers.",
   },
   {
-    icon: <Users className="h-6 w-6 text-purple-600" />,
-    bgColor: "bg-purple-100",
-    title: "Community Support",
-    description: "Connect with others on similar digital wellness journeys.",
+    icon: <HardDrive className="h-6 w-6 text-teal-600" />,
+    bgColor: "bg-teal-100",
+    title: "Tech Time Capsules",
+    description:
+      "Discover forgotten technologies that paved the way for today's devices.",
   },
 ];
 
 const Hero = () => {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-900 py-20 lg:py-28">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-purple-500/20 animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 rounded-full bg-indigo-500/20 animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/3 right-1/4 w-48 h-48 rounded-full bg-violet-500/20 animate-float animation-delay-2000"></div>
-
-          <div className="absolute top-20 left-20 w-28 h-28 border border-purple-300/30 rounded-lg rotate-12"></div>
-          <div className="absolute bottom-32 right-10 w-20 h-20 border border-purple-300/30 rounded-full -rotate-12"></div>
-          <div className="absolute top-1/2 right-1/4 w-16 h-16 border border-purple-300/30 rounded-md rotate-45"></div>
-          <div className="absolute inset-0 bg-grid-white/[0.05]"></div>
+      <section className="relative overflow-hidden bg-teal-50 py-20 lg:py-28">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-80">
+          <Disc
+            className="absolute text-teal-200 floating-animation"
+            style={{
+              width: "45px",
+              height: "45px",
+              top: "10%",
+              left: "15%",
+              animationDuration: "8s",
+              animationDelay: "0s",
+              transform: "rotate(15deg)",
+            }}
+          />
+          <Keyboard
+            className="absolute text-teal-200 floating-animation-alt"
+            style={{
+              width: "35px",
+              height: "35px",
+              top: "30%",
+              right: "10%",
+              animationDuration: "10s",
+              animationDelay: "1s",
+            }}
+          />
+          <Monitor
+            className="absolute text-teal-200 floating-animation"
+            style={{
+              width: "55px",
+              height: "55px",
+              top: "55%",
+              left: "5%",
+              animationDuration: "7s",
+              animationDelay: "2.5s",
+              transform: "rotate(-25deg)",
+            }}
+          />
+          <Gamepad
+            className="absolute text-teal-200 floating-animation-alt"
+            style={{
+              width: "30px",
+              height: "30px",
+              bottom: "15%",
+              right: "20%",
+              animationDuration: "9s",
+              animationDelay: "4s",
+            }}
+          />
+          <Smartphone
+            className="absolute text-teal-200 floating-animation"
+            style={{
+              width: "50px",
+              height: "50px",
+              bottom: "25%",
+              left: "30%",
+              animationDuration: "11s",
+              animationDelay: "5.5s",
+              transform: "rotate(5deg)",
+            }}
+          />
+          <HardDrive
+            className="absolute text-teal-200 floating-animation-alt"
+            style={{
+              width: "25px",
+              height: "25px",
+              top: "75%",
+              right: "8%",
+              animationDuration: "6s",
+              animationDelay: "1.5s",
+              transform: "rotate(60deg) scaleX(-1)",
+            }}
+          />
         </div>
-
-        <div className="relative container mx-auto px-6 pt-12 pb-12 text-center">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white mb-6">
-              <Sparkles className="h-4 w-4 text-purple-200 mr-2" />
-              <span className="text-sm font-medium">
-                Digital Wellness Awaits
-              </span>
+        <div className="relative container mx-auto px-6 pt-12 pb-12 text-center z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-800 mb-6 shadow-sm">
+              <Clock className="h-4 w-4 text-teal-600 mr-2" />
+              <span className="text-sm font-medium">Tech Time Travel</span>
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transform transition-all duration-700 delay-100">
-              Embrace the Art of Digital Free Life
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Rediscovering the Digital Wonders of Yesterday
             </h1>
-
-            <p className="text-lg md:text-xl text-purple-100 mb-8 max-w-2xl mx-auto transform transition-all duration-700 delay-200 opacity-100 -translate-y-4">
-              Discover mindful tech habits, expert strategies, and practical
-              guidance to free yourself from digital overwhelm while cultivating
-              a more intentional relationship with technology.
+            <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
+              Remember the whir of floppy disks, the glow of CRT monitors, and
+              the satisfying click of mechanical keyboards? At Technostalgia,
+              we're bringing back the tech that shaped a generation—devices and
+              gadgets that filled our childhoods with wonder before fading into
+              the corners of memory.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
               <Link
                 href="/blogs"
-                className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-all flex items-center"
+                className="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors duration-300 flex items-center shadow hover:shadow-md"
               >
-                Explore Articles
+                Explore Retro Tech
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-
               <Link
                 href="/aboutUs"
-                className="px-8 py-3 border border-purple-400/50 text-white rounded-lg font-medium hover:bg-purple-600/20 transition-all"
+                className="px-8 py-3 border border-teal-600 text-teal-700 rounded-lg font-medium hover:bg-teal-100 transition-colors duration-300"
               >
-                About Us
+                Our Nostalgic Mission
               </Link>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300"
-              >
-                <div
-                  className={`${stat.bgColor} p-3 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-4`}
-                >
-                  {stat.icon}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 text-gray-600">
+              {coreBenefits.map((benefit, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  {benefit.icon}
+                  <span className="text-sm font-medium">{benefit.label}</span>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
-                  {stat.count}
-                </div>
-                <div className="text-purple-200 text-sm">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
-      <section id="content-section" className="py-16 bg-purple-50">
+      <section id="content-section" className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent mb-4">
-              Digital Wellness Solutions
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Your Technostalgia Toolkit
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Simple tools and practices to help balance your digital life
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Journey through technology's past with our curated collections and
+              in-depth retrospectives.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-8xl mx-auto">
             {feature.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl border border-purple-200/50 shadow-md hover:shadow-lg transition-all duration-300"
+                className="p-6 bg-white rounded-xl border border-teal-200/60 shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 <div
-                  className={`${feature.bgColor} p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4`}
+                  className={`${feature.bgColor} p-3 rounded-lg w-12 h-12 flex features-center justify-center mb-4`}
                 >
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-purple-600 mb-2">
+                <h3 className="text-xl font-semibold text-teal-700 mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{feature.description}</p>
                 <Link
                   href="/blogs"
-                  className="inline-flex items-center text-gray-600 hover:text-purple-600 transition-colors"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 transition-colors"
                 >
-                  Learn more
+                  Read more
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
