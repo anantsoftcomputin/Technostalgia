@@ -139,7 +139,7 @@ const Hero = () => {
             <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
               Remember the whir of floppy disks, the glow of CRT monitors, and
               the satisfying click of mechanical keyboards? At Technostalgia,
-              we're bringing back the tech that shaped a generation—devices and
+              we're bringing back the tech that shaped a generation devices and
               gadgets that filled our childhoods with wonder before fading into
               the corners of memory.
             </p>

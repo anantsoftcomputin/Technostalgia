@@ -206,7 +206,7 @@ export default function Blog() {
 
   return (
     <main className="py-10 min-h-screen">
-      <section className="relative py-20 bg-teal-50">
+      <section className="relative py-20 bg-teal-100">
         <div className="relative container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -251,7 +251,7 @@ export default function Blog() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="flex p-1 rounded-full bg-teal-100 border border-teal-200/70"
+                  className="flex p-1 rounded-full bg-teal-100 border border-teal-600"
                 >
                   <button
                     onClick={() => setViewMode("grid")}
