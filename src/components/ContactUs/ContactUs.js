@@ -8,10 +8,10 @@ import {
   MessageSquare,
   Send,
   User,
-  Gamepad,
+  Smartphone,
   MapPin,
   ArrowRight,
-  Computer,
+  Users,
   Disc,
 } from "lucide-react";
 
@@ -70,7 +70,7 @@ const ContactUs = () => {
           <div className="grid md:grid-cols-12 gap-8 lg:gap-10 items-start">
             <div className="md:col-span-7 bg-white rounded-3xl shadow-xl p-6 sm:p-8 transform transition-all duration-500 hover:shadow-2xl">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <Gamepad className="h-6 w-6 text-teal-600 mr-2" />
+                <MessageSquare className="h-6 w-6 text-teal-600 mr-2" />
                 Send Us a Message
               </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -214,7 +214,7 @@ const ContactUs = () => {
             <div className="md:col-span-5 space-y-8">
               <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-gray-800 transform transition-all duration-500 hover:scale-105">
                 <h3 className="text-xl font-bold mb-6 flex items-center">
-                  <Computer className="h-6 w-6 text-teal-600 mr-2" />
+                  <Users className="h-6 w-6 text-teal-600 mr-2" />
                   Contact Information
                 </h3>
                 <div className="space-y-6">
@@ -229,6 +229,22 @@ const ContactUs = () => {
                         className="text-gray-700 hover:underline"
                       >
                         support@techsnostalgia.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="p-3 bg-teal-600 rounded-full mr-4">
+                      <Smartphone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-gray-500 text-sm">
+                        For urgent inquiries
+                      </p>
+                      <a
+                        href="tel:+91 96385 44455"
+                        className="text-gray-700 hover:underline"
+                      >
+                        +91 96385 44455
                       </a>
                     </div>
                   </div>
@@ -294,10 +310,13 @@ const ContactUs = () => {
           </div>
 
           <div className="mt-16 bg-white rounded-3xl shadow-lg p-6 overflow-hidden transform transition-all duration-500 hover:shadow-xl">
-            <h3 className="text-xl font-bold text-gray-800 mb-6">Find Us</h3>
+            <h3 className="text-xl font-bold text-teal-800 mb-6 flex items-center">
+              <MapPin className="h-6 w-6 text-teal-600 mr-3" />
+              Find Us
+            </h3>
             <div className="h-80 rounded-2xl overflow-hidden bg-gray-100">
               <iframe
-                title="Office Location"
+                title="Anant Soft Computing"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.169202432397!2d73.16878167596472!3d22.309439742562773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5873e594259%3A0xda3dc91c20f4beec!2sAnant%20Soft%20Computing!5e0!3m2!1sen!2sin!4v1731308281495!5m2!1sen!2sin"
                 width="100%"
                 height="400"
