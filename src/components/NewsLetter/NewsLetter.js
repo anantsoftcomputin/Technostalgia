@@ -72,7 +72,7 @@ const NewsLetter = () => {
             </div>
             <h2
               id="newsletter-heading"
-              className="text-4xl md:text-5xl font-bold text-teal-800 mb-6"
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
             >
               Get Weekly Blasts from the Tech Past
             </h2>

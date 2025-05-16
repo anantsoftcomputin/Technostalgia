@@ -78,9 +78,9 @@ const ContactUs = () => {
               >
                 <h2
                   id="form-heading"
-                  className="text-2xl font-bold text-teal-800 mb-6 flex items-center"
+                  className="text-2xl font-bold text-gray-800 mb-6 flex items-center"
                 >
-                  <MessageSquare className="h-6 w-6 text-teal-600 mr-3" />
+                  <MessageSquare className="h-6 w-6 text-gray-600 mr-3" />
                   Send Us a Message
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -266,13 +266,13 @@ const ContactUs = () => {
               <aside className="md:col-span-5 space-y-8">
                 <section
                   aria-labelledby="contact-info-heading"
-                  className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-teal-800 transform transition-all duration-500 hover:scale-105"
+                  className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 text-gray-800 transform transition-all duration-500 hover:scale-105"
                 >
                   <h3
                     id="contact-info-heading"
                     className="text-xl font-bold mb-6 flex items-center"
                   >
-                    <Users className="h-6 w-6 text-teal-600 mr-3" />
+                    <Users className="h-6 w-6 text-gray-600 mr-3" />
                     Contact Information
                   </h3>
                   <div className="space-y-6">
@@ -337,10 +337,10 @@ const ContactUs = () => {
                 >
                   <h3
                     id="faq-heading"
-                    className="text-xl font-bold text-teal-800 mb-4 flex items-center"
+                    className="text-xl font-bold text-gray-800 mb-4 flex items-center"
                   >
                     <Disc
-                      className="h-6 w-6 text-teal-600 mr-3"
+                      className="h-6 w-6 text-gray-600 mr-3"
                       aria-hidden="true"
                     />
                     Frequently Asked Questions
@@ -405,9 +405,9 @@ const ContactUs = () => {
             >
               <h3
                 id="map-heading"
-                className="text-xl font-bold text-teal-800 mb-6 flex items-center"
+                className="text-xl font-bold text-gray-800 mb-6 flex items-center"
               >
-                <MapPin className="h-6 w-6 text-teal-600 mr-3" />
+                <MapPin className="h-6 w-6 text-gray-600 mr-3" />
                 Find Us Here
               </h3>
               <div className="h-80 rounded-2xl overflow-hidden bg-gray-100 aspect-video">

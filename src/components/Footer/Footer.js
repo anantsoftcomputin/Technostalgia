@@ -24,13 +24,13 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.facebook.com/techsnostalgia/",
+    href: "https://www.facebook.com/techsnostalgia",
   },
   { name: "Twitter", icon: Twitter, href: "https://x.com/techsnostalgia" },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/techsnostalgia/",
+    href: "https://www.instagram.com/techsnostalgia",
   },
 ];
 

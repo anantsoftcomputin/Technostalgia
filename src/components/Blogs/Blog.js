@@ -28,6 +28,7 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("grid");
   const [featuredBlog, setFeaturedBlog] = useState(null);
+  const [error, setError] = useState(null);
 
   const blogsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,14 +48,15 @@ export default function Blog() {
           { method: "GET" }
         );
 
-        if (response.data.results.length > 0) {
+        if (response?.data?.results?.length > 0) {
           setFeaturedBlog(response.data.results[0]);
           setBlogs(response.data.results.slice(1));
         } else {
-          setBlogs(response.data.results);
+          setError("No blog posts found. Please check the API response.");
+          setBlogs([]);
         }
       } catch (error) {
-        console.log("error", error);
+        setError("No blog posts found. Please check the API response.");
       } finally {
         setLoading(false);
       }
@@ -70,12 +72,16 @@ export default function Blog() {
           "/get-categories/?site=techsnostalgia.com",
           { method: "GET" }
         );
-        setCategories((prev) => [
-          "All",
-          ...response.data.results.map((category) => category.name),
-        ]);
+        if (response?.data?.results?.length > 0) {
+          setCategories((prev) => [
+            "All",
+            ...response.data.results.map((category) => category.name),
+          ]);
+        } else {
+          console.log("No categories found or invalid response");
+        }
       } catch (error) {
-        console.log("error", error);
+        console.error("Error fetching categories:", error);
       }
     };
 
@@ -138,7 +144,7 @@ export default function Blog() {
             className="p-2 rounded-full bg-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors"
             aria-label="Previous page"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+            <ChevronLeft className="w-5 h-5 text-gray-600" aria-hidden="true" />
           </button>
           {startPage > 1 && (
             <>
@@ -149,11 +155,12 @@ export default function Blog() {
                     ? "bg-teal-600 text-white"
                     : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
+                aria-label={`Go to page 1`}
               >
                 1
               </button>
               {startPage > 2 && (
-                <span className="px-2 text-gray-500">
+                <span className="px-2 text-gray-500" aria-hidden="true">
                   <Ellipsis className="w-5 h-5" />
                 </span>
               )}
@@ -168,6 +175,7 @@ export default function Blog() {
                   ? "bg-teal-600 text-white"
                   : "bg-white text-gray-600 hover:bg-teal-50"
               } shadow-md`}
+              aria-label={`Go to page ${startPage + i}`}
             >
               {startPage + i}
             </button>
@@ -175,7 +183,7 @@ export default function Blog() {
           {endPage < totalPages && (
             <>
               {endPage < totalPages - 1 && (
-                <span className="px-2 text-gray-500">
+                <span className="px-2 text-gray-500" aria-hidden="true">
                   <Ellipsis className="w-5 h-5" />
                 </span>
               )}
@@ -186,6 +194,7 @@ export default function Blog() {
                     ? "bg-teal-600 text-white"
                     : "bg-white text-gray-600 hover:bg-teal-50"
                 } shadow-md`}
+                aria-label={`Go to page ${totalPages}`}
               >
                 {totalPages}
               </button>
@@ -197,7 +206,10 @@ export default function Blog() {
             className="p-2 rounded-full bg-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors"
             aria-label="Next page"
           >
-            <ChevronRight className="w-5 h-5 text-gray-600" />
+            <ChevronRight
+              className="w-5 h-5 text-gray-600"
+              aria-hidden="true"
+            />
           </button>
         </div>
       </div>
@@ -235,12 +247,14 @@ export default function Blog() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 md:py-5 rounded-full bg-white text-gray-800 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-300"
+                  aria-label="Search blogs"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
                     className="absolute right-4 top-1/2 -translate-y-1/2 h-6 w-6 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:bg-gray-300 transition-colors"
+                    aria-label="Clear search query"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -259,7 +273,8 @@ export default function Blog() {
                       viewMode === "grid"
                         ? "bg-teal-600 text-white shadow"
                         : "text-teal-700 hover:bg-teal-200/60"
-                    } transition-all duration-300 flex items-center`}
+                    } transition-all duration-300`}
+                    aria-label="View blogs as grid"
                   >
                     Grid
                   </button>
@@ -269,7 +284,8 @@ export default function Blog() {
                       viewMode === "list"
                         ? "bg-teal-600 text-white shadow"
                         : "text-teal-700 hover:bg-teal-200/60"
-                    } transition-all duration-300 flex items-center`}
+                    } transition-all duration-300`}
+                    aria-label="View blogs as list"
                   >
                     List
                   </button>
@@ -286,16 +302,26 @@ export default function Blog() {
               <button
                 onClick={() => setIsCategoryOpen(!isCategoryOpen)}
                 className="w-full flex justify-between items-center px-4 py-2 bg-gray-100 rounded-lg"
+                aria-expanded={isCategoryOpen}
+                aria-controls="mobile-categories"
               >
                 <span>Categories</span>
                 <ChevronDown
                   className={`h-5 w-5 transition-transform ${
                     isCategoryOpen ? "rotate-180" : ""
                   }`}
+                  aria-hidden="true"
                 />
               </button>
               {isCategoryOpen && (
-                <div className="mt-2 space-y-2">
+                <motion.div
+                  id="mobile-categories"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-2 space-y-2"
+                >
                   {categories.map((category, index) => (
                     <button
                       key={index}
@@ -303,16 +329,17 @@ export default function Blog() {
                         setSelectedCategory(category);
                         setIsCategoryOpen(false);
                       }}
-                      className={`inline-flex items-center justify-center px-6 py-2 rounded-full text-sm font-semibold transition-colors duration-300 border border-teal-600  ${
+                      className={`w-full px-4 py-2 text-left rounded-full text-sm font-semibold transition-colors duration-300 border border-teal-600 ${
                         selectedCategory === category
                           ? "bg-teal-600 text-white shadow-lg shadow-teal-500/25"
                           : "bg-white text-teal-600 hover:bg-teal-50"
                       }`}
+                      aria-label={`View articles in ${category} category`}
                     >
                       {category}
                     </button>
                   ))}
-                </div>
+                </motion.div>
               )}
             </div>
             <div className="hidden md:flex flex-wrap justify-center gap-4">
@@ -325,6 +352,7 @@ export default function Blog() {
                       ? "bg-teal-600 text-white shadow-lg shadow-teal-500/25"
                       : "bg-white text-teal-600 hover:bg-teal-50"
                   }`}
+                  aria-label={`View articles in ${category} category`}
                 >
                   {category}
                 </button>
@@ -336,10 +364,13 @@ export default function Blog() {
       {!searchQuery && selectedCategory === "All" && featuredBlog && (
         <section className="container mx-auto px-4 sm:px-6 py-12">
           <div className="flex items-center gap-2 mb-6">
-            <Sparkles className="h-5 w-5 text-teal-600" />
+            <Sparkles className="h-5 w-5 text-teal-600" aria-hidden="true" />
             <h2 className="text-2xl font-bold text-gray-900">Featured Post</h2>
           </div>
-          <Link href={`/${featuredBlog.slug}`}>
+          <Link
+            href={`/${featuredBlog.slug}`}
+            aria-label={`Read the featured article: ${featuredBlog.title}`}
+          >
             <motion.article
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
@@ -354,7 +385,7 @@ export default function Blog() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-teal-600 text-sm font-medium">
-                      <Tag className="h-3 w-3" />
+                      <Tag className="h-3 w-3" aria-hidden="true" />
                       {featuredBlog.category.name}
                     </span>
                   </div>
@@ -396,12 +427,19 @@ export default function Blog() {
 
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-1 text-sm text-gray-500">
-                        <BookCheck className="h-4 w-4 text-teal-500" />
+                        <BookCheck
+                          className="h-4 w-4 text-teal-500"
+                          aria-hidden="true"
+                        />
                         {featuredBlog.estimated_reading_time} min read
                       </span>
 
                       <button className="inline-flex items-center gap-1 px-4 py-2 bg-teal-100 rounded-full text-teal-600 text-sm font-medium hover:bg-teal-200 transition-colors">
-                        Read Article <ChevronRight className="h-4 w-4 ml-1" />
+                        Read Article
+                        <ChevronRight
+                          className="h-4 w-4 ml-1"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </div>
@@ -414,7 +452,7 @@ export default function Blog() {
       <section className="container mx-auto px-4 sm:px-6 py-12">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-teal-600" />
+            <BookOpen className="h-5 w-5 text-teal-600" aria-hidden="true" />
             {searchQuery
               ? `Search Results for "${searchQuery}"`
               : selectedCategory !== "All"
@@ -436,11 +474,13 @@ export default function Blog() {
             }
           >
             {[...Array(6)].map((_, index) => (
-              <div
-                key={index}
+              <motion.div
+                key={`loading-${index}`}
                 className={`bg-white rounded-2xl overflow-hidden shadow-lg ${
                   viewMode === "list" ? "flex flex-col md:flex-row" : ""
                 }`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
               >
                 <div
                   className={`relative ${
@@ -456,7 +496,7 @@ export default function Blog() {
                   <div className="flex flex-wrap gap-2 mb-4">
                     {[...Array(3)].map((_, tagIndex) => (
                       <div
-                        key={tagIndex}
+                        key={`loading-tag-${tagIndex}`}
                         className="h-6 w-16 bg-gray-200 rounded-md animate-pulse"
                       ></div>
                     ))}
@@ -476,9 +516,37 @@ export default function Blog() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
+        ) : error ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
+            <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <X className="h-8 w-8 text-red-600" aria-hidden="true" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{error}</h3>
+            <p className="text-gray-600 mb-6">
+              There was an issue loading the blog posts. This might be due to a
+              network issue or API configuration.
+            </p>
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800 mb-6">
+              <p className="font-medium">Developer Information:</p>
+              <p>
+                Check browser console for detailed error messages. Make sure
+                your API endpoint is correct and accessible.
+              </p>
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-6 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-colors"
+            >
+              Retry
+            </button>
+          </motion.div>
         ) : filteredBlogs.length > 0 ? (
           <div>
             <div
@@ -489,7 +557,11 @@ export default function Blog() {
               }
             >
               {currentBlogs.map((blog, index) => (
-                <Link key={index} href={`/${blog.slug}`}>
+                <Link
+                  key={index}
+                  href={`/${blog.slug}`}
+                  aria-label={`Read article: ${blog.title}`}
+                >
                   <motion.article
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -511,7 +583,7 @@ export default function Blog() {
                       />
                       <div className="absolute top-4 left-4">
                         <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-teal-600 text-sm font-medium">
-                          <Tag className="h-3 w-3" />
+                          <Tag className="h-3 w-3" aria-hidden="true" />
                           {blog.category.name}
                         </span>
                       </div>
@@ -531,15 +603,16 @@ export default function Blog() {
                       </p>
 
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {blog.tags.slice(0, 3).map((tag, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600"
-                          >
-                            {tag.name}
-                          </span>
-                        ))}
-                        {blog.tags.length > 3 && (
+                        {blog.tags &&
+                          blog.tags.slice(0, 3).map((tag, index) => (
+                            <span
+                              key={index}
+                              className="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600"
+                            >
+                              {tag.name}
+                            </span>
+                          ))}
+                        {blog.tags && blog.tags.length > 3 && (
                           <span className="px-2 py-1 rounded-md text-sm text-gray-500">
                             +{blog.tags.length - 3} more
                           </span>
@@ -549,11 +622,13 @@ export default function Blog() {
                       <div className="mt-auto">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-teal-100 flex items-center justify-center bg-teal-100 text-teal-600 font-semibold">
-                            {blog.author.full_name.charAt(0)}
+                            {blog.author &&
+                              blog.author.full_name &&
+                              blog.author.full_name.charAt(0)}
                           </div>
                           <div>
                             <p className="text-xs sm:text-sm font-medium text-gray-900">
-                              {blog.author.full_name}
+                              {blog.author && blog.author.full_name}
                             </p>
                             <p className="text-xs sm:text-sm text-gray-500">
                               {moment(blog.published_at).format("ll")}
@@ -563,12 +638,18 @@ export default function Blog() {
 
                         <div className="flex flex-wrap gap-3 items-center justify-between text-xs sm:text-sm text-gray-500">
                           <span className="flex items-center gap-1">
-                            <BookCheck className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500" />
+                            <BookCheck
+                              className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500"
+                              aria-hidden="true"
+                            />
                             {blog.estimated_reading_time} min read
                           </span>
 
                           <span className="flex items-center gap-1">
-                            <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500" />
+                            <Clock
+                              className="h-3 w-3 sm:h-4 sm:w-4 text-teal-500"
+                              aria-hidden="true"
+                            />
                             {moment(blog.published_at)
                               .startOf("hour")
                               .fromNow()}
@@ -589,7 +670,7 @@ export default function Blog() {
             className="text-center py-12"
           >
             <div className="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="h-8 w-8 text-teal-600" />
+              <Search className="h-8 w-8 text-teal-600" aria-hidden="true" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               No Articles Found
