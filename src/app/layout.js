@@ -1,15 +1,48 @@
 import "./globals.css";
+import Script from "next/script";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Script from "next/script";
 
 export const metadata = {
+  title: "Techsnostalgia: Celebrating the Classics of Outdated Technology",
+  description:
+    "Join us at Techsnostalgia as we revisit the nostalgic world of vintage tech. Relive the golden era of outdated gadgets and explore the stories behind them.",
   icons: {
     icon: [
       { url: "/techsnostalgia.png" },
       { url: "/techsnostalgia.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: { url: "/ techsnostalgia.png", sizes: "180x180", type: "image/png" },
+    apple: { url: "/techsnostalgia.png", sizes: "180x180", type: "image/png" },
+  },
+  openGraph: {
+    title: "Techsnostalgia: Celebrating the Classics of Outdated Technology",
+    description:
+      "Join us at Techsnostalgia as we revisit the nostalgic world of vintage tech. Relive the golden era of outdated gadgets and explore the stories behind them.",
+    images: [
+      {
+        url: "https://techsnostalgia.com/techsnostalgia.png",
+        width: 800,
+        height: 600,
+        alt: "Techsnostalgia Logo",
+      },
+    ],
+    siteName: "Techsnostalgia",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Techsnostalgia: Celebrating the Classics of Outdated Technology",
+    description:
+      "Join us at Techsnostalgia as we revisit the nostalgic world of vintage tech. Relive the golden era of outdated gadgets and explore the stories behind them.",
+    images: [
+      {
+        url: "https://techsnostalgia.com/techsnostalgia.png",
+        width: 800,
+        height: 600,
+        alt: "Techsnostalgia Logo",
+      },
+    ],
   },
 };
 

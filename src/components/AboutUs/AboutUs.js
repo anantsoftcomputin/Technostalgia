@@ -281,7 +281,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-6 text-center">
           <h2
             id="cta-heading"
-            className="text-3xl font-bold text-teal-800 mb-6"
+            className="text-3xl font-bold text-gray-800 mb-6"
           >
             Join Our Tech Time Machine
           </h2>
