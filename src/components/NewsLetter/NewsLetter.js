@@ -35,7 +35,7 @@ const NewsLetter = () => {
         data: { email: data.email, site: "4" },
       });
       if (response.status === 200 || response.status === 201) {
-        toast.success("Subscribed successfully! 🎮");
+        toast.success("Subscribed successfully! 🎉");
         reset();
       } else {
         toast.error("Failed to subscribe. Please try again.");
@@ -49,7 +49,11 @@ const NewsLetter = () => {
   };
 
   return (
-    <section id="newsletter-section" className="relative py-20 overflow-hidden">
+    <section
+      id="newsletter-section"
+      aria-labelledby="newsletter-heading"
+      className="relative py-20 overflow-hidden"
+    >
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="absolute inset-0 bg-teal-50">
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
@@ -58,10 +62,18 @@ const NewsLetter = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 transition-all duration-700">
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-teal-100 border border-teal-200 text-teal-800 mb-6 shadow-sm">
-              <Sparkles className="h-4 w-4 text-teal-600 mr-2" />
-              Join Our Tech Time Machine
+              <Sparkles
+                className="h-4 w-4 text-teal-600 mr-2"
+                aria-hidden="true"
+              />
+              <span className="text-sm font-medium">
+                Join Our Tech Time Machine
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-teal-800 mb-6">
+            <h2
+              id="newsletter-heading"
+              className="text-4xl md:text-5xl font-bold text-teal-800 mb-6"
+            >
               Get Weekly Blasts from the Tech Past
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
@@ -73,9 +85,16 @@ const NewsLetter = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="relative flex flex-col sm:flex-row gap-4"
+              aria-labelledby="newsletter-heading"
             >
               <div className="relative flex-grow">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <label htmlFor="newsletter-email" className="sr-only">
+                  Email Address
+                </label>
+                <Mail
+                  className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
                 <Controller
                   name="email"
                   control={control}
@@ -89,14 +108,25 @@ const NewsLetter = () => {
                   render={({ field }) => (
                     <input
                       {...field}
+                      id="newsletter-email"
                       type="email"
+                      autoComplete="email"
                       placeholder="Enter your email"
+                      aria-required="true"
+                      aria-invalid={errors.email ? "true" : "false"}
+                      aria-describedby={
+                        errors.email ? "email-error" : undefined
+                      }
                       className="w-full pl-12 pr-4 py-4 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
                     />
                   )}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1 pl-4">
+                  <p
+                    id="email-error"
+                    className="text-red-500 text-sm mt-1 pl-4"
+                    role="alert"
+                  >
                     {errors.email.message}
                   </p>
                 )}
@@ -107,20 +137,23 @@ const NewsLetter = () => {
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-semibold transition-colors duration-300 disabled:opacity-70"
               >
                 {isLoading ? "Subscribing..." : "Subscribe"}
-                <Send className="ml-2 h-5 w-5" />
+                <Send className="ml-2 h-5 w-5" aria-hidden="true" />
               </button>
             </form>
           </div>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto transition-all duration-700 delay-400">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto transition-all duration-700 delay-400">
             {benefits.map((benefit, index) => (
               <div
-                key={benefit + index}
-                className="flex items-center gap-3 text-gray-700"
+                key={index}
+                className="flex items-center gap-3 text-gray-700 bg-white/50 p-3 rounded-lg border border-teal-100"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center border border-teal-200">
-                  <CheckCircle className="h-4 w-4 text-teal-600" />
+                  <CheckCircle
+                    className="h-4 w-4 text-teal-600"
+                    aria-hidden="true"
+                  />
                 </div>
-                <span>{benefit}</span>
+                <span className="text-sm font-medium">{benefit}</span>
               </div>
             ))}
           </div>
