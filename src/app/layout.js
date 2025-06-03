@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
         ></Script>
         <meta
           name="google-site-verification"
-          content="-vEQwCv3N-7CYJlks9qASX9zmgZ-7sbhBPfH4JKkxT4"
+          content="G_BEBwfPy8ovKni0OryMWcBcjp8VJkzpyYHnIXOtkco"
         ></meta>
         <meta
           name="google-adsense-account"
