@@ -30,33 +30,6 @@ const coreBenefits = [
   },
 ];
 
-const features = [
-  {
-    id: "feature-1",
-    icon: <Monitor className="h-6 w-6 text-teal-600" aria-hidden="true" />,
-    bgColor: "bg-teal-100",
-    title: "Vintage Computer Guides",
-    description:
-      "Explore the golden age of computing with our in-depth retro tech articles.",
-  },
-  {
-    id: "feature-2",
-    icon: <Gamepad className="h-6 w-6 text-teal-600" aria-hidden="true" />,
-    bgColor: "bg-teal-100",
-    title: "Classic Gaming Retrospectives",
-    description:
-      "Revisit the games and consoles that defined generations of gamers.",
-  },
-  {
-    id: "feature-3",
-    icon: <HardDrive className="h-6 w-6 text-teal-600" aria-hidden="true" />,
-    bgColor: "bg-teal-100",
-    title: "Tech Time Capsules",
-    description:
-      "Discover forgotten technologies that paved the way for today's devices.",
-  },
-];
-
 const Hero = () => {
   return (
     <>
@@ -187,52 +160,6 @@ const Hero = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="technostalgia-toolkit" className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Your Technostalgia Toolkit
-            </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Journey through technology's past with our curated collections and
-              in-depth retrospectives.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-8xl mx-auto">
-            {features.map((feature) => (
-              <article
-                key={feature.id}
-                className="p-6 bg-white rounded-xl border border-teal-200/60 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
-                aria-labelledby={`feature-title-${feature.id}`}
-              >
-                <div
-                  className={`${feature.bgColor} p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4`}
-                >
-                  {feature.icon}
-                </div>
-                <h3
-                  id={`feature-title-${feature.id}`}
-                  className="text-xl font-semibold text-teal-700 mb-2"
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 mb-4 flex-grow">
-                  {feature.description}
-                </p>
-                <Link
-                  href="/blogs"
-                  className="inline-flex items-center text-gray-600 hover:text-teal-600 transition-colors mt-auto"
-                  aria-label={`Explore ${feature.title}`}
-                >
-                  Explore Now
-                  <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
-                </Link>
-              </article>
-            ))}
           </div>
         </div>
       </section>
