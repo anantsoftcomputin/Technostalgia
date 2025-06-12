@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "How We Protect Your Data | Techsnostalgia Privacy Policy",
   description:
@@ -195,7 +197,7 @@ export default function PrivacyPolicy() {
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-200">
                 <h2 className="text-xl font-semibold text-gray-900">
-                  4. Cookies and Tracking Technologies                  techsnostalgia.com
+                  4. Cookies and Tracking Technologies techsnostalgia.com
                 </h2>
               </div>
               <div className="p-6">
@@ -458,24 +460,22 @@ export default function PrivacyPolicy() {
                   Privacy Policy or your personal information handled by
                   techsnostalgia.com, please contact us:
                 </p>
-                <address className="mt-2 text-teal-600 not-italic">
+                <address className="mt-2 text-gray-600 not-italic">
                   Email:{" "}
                   <a
                     href="mailto:techsnostalgia@gmail.com"
-                    className="hover:underline"
+                    className="text-teal-600 hover:text-teal-700 hover:underline"
                   >
                     techsnostalgia@gmail.com
                   </a>
                   <br />
                   Contact: Available on{" "}
-                  <a
-                    href="https://techsnostalgia.com/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
+                  <Link
+                    href="https://techsnostalgia.com/contact-us"
+                    className="text-teal-600 hover:text-teal-700 hover:underline"
                   >
                     techsnostalgia.com
-                  </a>
+                  </Link>
                 </address>
               </div>
             </div>

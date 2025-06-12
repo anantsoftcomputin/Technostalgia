@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Important Disclaimer Notice | Techsnostalgia",
   description:
@@ -303,26 +305,24 @@ export default function Disclaimer() {
                   If you have any questions or concerns about this Disclaimer
                   for techsnostalgia.com, please contact us:
                 </p>
-                <address className="mt-2 text-teal-600 not-italic">
+                <address className="mt-2 text-gray-600 not-italic">
                   Email:{" "}
                   <a
                     href="mailto:support@techsnostalgia.com"
-                    className="hover:underline"
+                    className="text-teal-600 hover:text-teal-700hover:underline"
                   >
                     support@techsnostalgia.com
                   </a>
                   <br />
-                  Address: Alkapuri, Vadodara, Gujarat, India 390007.
-                  <br />
-                  Contact: Further contact options available on{" "}
-                  <a
-                    href="https://techsnostalgia.com/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
+                  Contact: Available on{" "}
+                  <Link
+                    href="/contact-us"
+                    className="text-teal-600 hover:text-teal-700hover:underline"
                   >
                     techsnostalgia.com
-                  </a>
+                  </Link>
+                  <br />
+                  Address: Alkapuri, Vadodara, Gujarat, India 390007.
                 </address>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function Home() {
     description:
       "Join us at Techsnostalgia as we revisit the nostalgic world of vintage tech. Relive the golden era of outdated gadgets and explore the stories behind them.",
   };
-  
+
   return (
     <>
       <script
