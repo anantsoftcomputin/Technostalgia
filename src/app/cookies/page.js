@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "How Techsnostalgia Uses Cookies on This Site | Cookie Policy",
   description:
@@ -282,26 +284,24 @@ export default function CookiesPolicy() {
                   or our use of cookies at techsnostalgia.com, please contact
                   us:
                 </p>
-                <address className="mt-2 text-teal-600 not-italic">
+                <address className="mt-2 text-gray-600 not-italic">
                   Email:{" "}
                   <a
                     href="mailto:support@techsnostalgia.com"
-                    className="hover:underline"
+                    className="text-teal-600 hover:text-teal-700hover:underline"
                   >
                     support@techsnostalgia.com
                   </a>
                   <br />
-                  Address: Alkapuri, Vadodara, Gujarat, India 390007.
-                  <br />
                   Contact: Available on{" "}
-                  <a
-                    href="https://techsnostalgia.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
+                  <Link
+                    href="/contact-us"
+                    className="text-teal-600 hover:text-teal-700hover:underline"
                   >
                     techsnostalgia.com
-                  </a>
+                  </Link>
+                  <br />
+                  Address: Alkapuri, Vadodara, Gujarat, India 390007.
                 </address>
               </div>
             </div>
