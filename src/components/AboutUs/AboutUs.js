@@ -15,7 +15,7 @@ import Link from "next/link";
 
 const stats = [
   {
-    id: "stat-users",
+    id: "stat-users-1",
     number: "10K+",
     label: "Retro Tech Enthusiasts",
     icon: <Users className="h-6 w-6 text-teal-600" aria-hidden="true" />,
